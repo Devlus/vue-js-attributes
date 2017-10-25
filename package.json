@@ -1,0 +1,17 @@
+{
+  "name": "vue-di-attributes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "tsc -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.1.10",
+    "typescript": "^2.5.3",
+    "vue": "^2.5.2",
+    "vue-class-component": "^6.0.0"
+  }
+}
