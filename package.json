@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "tsc -p ."
+    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "reflect-metadata": "^0.1.10",
-    "typescript": "^2.5.3",
-    "vue": "^2.5.2",
-    "vue-class-component": "^6.0.0"
+    "reflect-metadata": "^0.1.9",
+    "vue-class-component": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.4.1",
+    "vue": "^2.2.1"
   }
 }
