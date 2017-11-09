@@ -45,7 +45,6 @@ export type Constructor = {
 export function Import(options = {}) {
     if (options === void 0) { options = {}; }
     return function (target, key) {
-        debugger;
         if (!Array.isArray(options) && typeof options['type'] === 'undefined') {
             options['type'] = Reflect.getMetadata('design:type', target, key);
         }

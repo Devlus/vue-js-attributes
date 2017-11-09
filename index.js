@@ -36,7 +36,6 @@ export function Import(options) {
         options = {};
     }
     return function (target, key) {
-        debugger;
         if (!Array.isArray(options) && typeof options['type'] === 'undefined') {
             options['type'] = Reflect.getMetadata('design:type', target, key);
         }
