@@ -8,7 +8,6 @@ import { PropOptions } from 'vue';
 
 class DependencyInjectionAttributePlugin {
     install(Vue: typeof _Vue, options?: any) {
-        console.log('config');
         Vue.mixin({
             provide: getNewServices(),
         });
@@ -30,7 +29,6 @@ function getNewServices() {
 let serviceDefs = {};
 
 export function Service(target: Function) {
-    console.log('Service called on: ', target.name);
     serviceDefs[target.name] = target;
 }
 
