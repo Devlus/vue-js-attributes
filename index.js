@@ -6,8 +6,6 @@ var DependencyInjectionAttributePlugin = (function () {
     DependencyInjectionAttributePlugin.prototype.install = function (Vue, options) {
         console.log('config');
         Vue.mixin({
-            beforeCreate: function () {
-            },
             provide: getNewServices(),
         });
     };
@@ -36,6 +34,13 @@ export function Import(options) {
         options = {};
     }
     return function (target, key) {
+        //Not a Vue Component
+        if (!target.__proto__.constructor.name.includes('Vue')) {
+            debugger;
+            target[key] = new serviceDefs[key]();
+            return;
+        }
+        //A Vue Component
         if (!Array.isArray(options) && typeof options['type'] === 'undefined') {
             options['type'] = Reflect.getMetadata('design:type', target, key);
         }

@@ -3,15 +3,13 @@ import { Vue as _Vue } from 'vue/types/vue';
 import { PluginFunction, PluginObject } from 'vue/types/plugin';
 import * as classComponent from 'vue-class-component';
 
+
 import { PropOptions } from 'vue';
 
 class DependencyInjectionAttributePlugin {
     install(Vue: typeof _Vue, options?: any) {
         console.log('config');
         Vue.mixin({
-            beforeCreate: function () {
-
-            },
             provide: getNewServices(),
         });
     }
@@ -45,6 +43,13 @@ export type Constructor = {
 export function Import(options = {}) {
     if (options === void 0) { options = {}; }
     return function (target, key) {
+        //Not a Vue Component
+        if(!target.__proto__.constructor.name.includes('Vue')){
+            target[key] = new serviceDefs[key]();
+            return;
+        }
+
+        //A Vue Component
         if (!Array.isArray(options) && typeof options['type'] === 'undefined') {
             options['type'] = Reflect.getMetadata('design:type', target, key);
         }
