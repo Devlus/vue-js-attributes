@@ -36,8 +36,8 @@ export function Import(options) {
     return function (target, key) {
         //Not a Vue Component
         if (!target.__proto__.constructor.name.includes('Vue')) {
-            debugger;
-            target[key] = new serviceDefs[key]();
+            var type = Reflect.getMetadata('design:type', target, key);
+            target[key] = new serviceDefs[type.name]();
             return;
         }
         //A Vue Component
