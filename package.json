@@ -4,16 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "reflect-metadata": "^0.1.9",
-    "vue-class-component": "^5.0.0"
+    "vue-class-component": "^6.1.1"
   },
   "devDependencies": {
     "typescript": "^2.4.1",
-    "vue": "^2.2.1"
+    "vue": "^2.5.0"
   }
 }
